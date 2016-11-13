@@ -27,7 +27,9 @@
         <br />
         <br />
         <asp:LinkButton ID="toChangeIor" runat="server" Text="修改个人资料" PostBackUrl="~/User/ChangeIor.aspx"></asp:LinkButton>
-
+        <br />
+        <br />
+        <asp:LinkButton ID="toLogin" runat="server" Text="注销登录" OnClick="toLogin_Click"></asp:LinkButton>
 
         
     </div>

@@ -45,4 +45,11 @@ public partial class User : System.Web.UI.Page
         string idnumber = Session["userid"].ToString();
         Session["userid"] = idnumber;
     }
+
+
+    protected void toLogin_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Response.Write("<script>alert('注销成功！');location='../Login.aspx'</script>");
+    }
 }

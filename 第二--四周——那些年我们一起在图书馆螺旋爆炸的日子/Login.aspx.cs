@@ -42,7 +42,7 @@ public partial class Default2 : System.Web.UI.Page
                 Response.Write("<script>alert('登陆成功！');location='User/Information.aspx'</script>");
                 Session["userid"] = idnumber;
                // FormsAuthentication.RedirectFromLoginPage(txtNum.Text, false);
-               // Response.Redirect("User/Information.aspx");
+                //Response.Redirect("User/User.aspx");
             }
             else
             {
