@@ -17,6 +17,7 @@
                         <th>用户名</th>
                         <th>用户邮箱</th>
                         <th>用户手机号码</th>
+                        <th>借阅书本数量</th>
                         <th>用户状态</th>
                         <th>删除</th>
                         <th>重置账户信息</th>
@@ -33,6 +34,7 @@
                     <td><%# Eval("username")%></td>
                     <td><%# Eval("useremail")%></td>
                     <td><%# Eval("userphonenumber")%></td>
+                    <td><%# Eval("sum")%></td>
                     <td><%# Eval("frozen") %></td>
                     <td><asp:LinkButton ID="lbtDelete" runat="server" Text="删除" CommandName="Delete" CommandArgument='<%#Eval("userid") %>' ></asp:LinkButton></td>
                     <td><asp:LinkButton ID="lbtResetting" runat="server" Text="重置" CommandName="Resetting" CommandArgument='<%#Eval("userid") %>'></asp:LinkButton></td>
