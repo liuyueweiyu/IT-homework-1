@@ -28,7 +28,7 @@ public partial class toMaUser : System.Web.UI.Page
     {
         classlogin myList = new classlogin();
 
-        string sql = "select * from User";
+        string sql = "select * from UserList";
 
         DataTable dt = new DataTable();
 

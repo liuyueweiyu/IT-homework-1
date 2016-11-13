@@ -19,6 +19,9 @@
 &nbsp;&nbsp;&nbsp;
 
         <asp:Button ID ="subBorList" runat="server" Text="保存" OnClick="subBorList_Click" />
+
+
+        <asp:LinkButton ID="return" runat="server" PostBackUrl="~/Administrator/MaBorList.aspx"></asp:LinkButton>
     </div>
     </form>
 </body>
