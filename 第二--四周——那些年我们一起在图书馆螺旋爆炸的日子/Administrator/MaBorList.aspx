@@ -16,7 +16,6 @@
                                 <th>借阅编号</th>
                                 <th>书籍编号</th>
                                 <th>借阅书名</th>
-                                <th>借阅用户</th>
                                 <th>借阅时间</th>
                                 <th>预计归还时间</th>
                                 <th>编辑</th>
@@ -29,7 +28,6 @@
                              <td><%# Eval("serialnumber")%></td>
                              <td><%# Eval("br_bookid")%></td>
                              <td><%# Eval("br_bookname")%></td>
-                             <td><%# Eval("br_userid")%></td>
                              <td><%# Eval("br_time")%></td>
                              <td><%# Eval("re_time") %></td>
                              <td><asp:LinkButton ID="lbtReturn" runat="server" Text="编辑" PostBackUrl='<%#"EditorBorList.aspx?serialnumber="+Eval("serialnumber") %>'></asp:LinkButton>

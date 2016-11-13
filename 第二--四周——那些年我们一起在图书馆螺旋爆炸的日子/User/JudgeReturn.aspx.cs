@@ -28,7 +28,6 @@ public partial class User_JudgeReturn : System.Web.UI.Page
         dt = myReturn.JudgeIor(sql);
 
         string forzen = dt.Rows[0][5].ToString();
-        string sums = dt.Rows[0][6].ToString();
 
         if (String.Compare(forzen, "1") != 0)
             Response.Write("<script>alert('该用户已经被管理员冻结不能借阅书籍！')</script>");
@@ -58,16 +57,9 @@ public partial class User_JudgeReturn : System.Web.UI.Page
 
             int flag = myReturn.DataSQL(sql2);
 
-
-            string newsum = Convert.ToString(Convert.ToInt16(sums) - 1);
-            string sql00 = "update UserList set sum = '" + newsum + "'where userid = '" + uid + "'";
-            int flag00 = myReturn.DataSQL(sql00);
-
-
-
             string sql3 = "delete from BorrowList where serialnumber='" + sid + "'";
             int flag3 = myReturn.DataSQL(sql3);
-            if (flag == 1 && flag3 == 1 && flag00 ==1)
+            if (flag == 1 && flag3 == 1)
                 Response.Write("<script>alert('归还成功！');location='BookList.aspx'</script>");
 
 

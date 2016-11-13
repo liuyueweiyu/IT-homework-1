@@ -19,9 +19,8 @@ public partial class Administrator_AddBorList : System.Web.UI.Page
     {
         classlogin mysubbook = new classlogin();
 
-        int newbookids = Convert.ToInt16(newbookid.Text);
+        string newbookids = newbookid.Text;
         string newuserids = newuserid.Text;
-
 
         DateTime now = DateTime.Now;
         DateTime returntime = DateTime.Now.AddDays(+30);
@@ -43,27 +42,17 @@ public partial class Administrator_AddBorList : System.Web.UI.Page
 
             dt = mysubbook.JudgeIor(sql3);
             string count = dt.Rows[0][3].ToString();
-            string bookname = dt.Rows[0][1].ToString();
-
-            dt = mysubbook.JudgeIor(sql2);
-            string sum = dt.Rows[0][6].ToString();
-
-
             if (String.Compare(count,"0")==0)
                 Response.Write("<script>alert('书本数量为0不能借阅！')</script>");
             else
             {
-
-
-                sum = Convert.ToString(Convert.ToInt16(sum) + 1);
-                string sql00 = "update UserList set sum = '" + sum + "'where userid = '" + newuserids + "'";
-                int flag00 = mysubbook.DataSQL(sql00);
+                string bookname = dt.Rows[0][1].ToString();
 
 
                 string sql = "insert into BorrowList (br_bookid,br_userid,br_bookname,br_time,re_time) values('" + newbookids + "','" + newuserids + "','" + bookname + "','" + now + "','" + returntime + "')";
 
                 int loch = mysubbook.DataSQL(sql);
-                if (loch == 1&&flag00==1)
+                if (loch == 1)
                     Response.Write("<script>alert('添加成功！');location='MaBorList.aspx'</script>");
                 else
                     Response.Write("<script>alert('添加失败！');location='AddBorList.aspx'</script>");
