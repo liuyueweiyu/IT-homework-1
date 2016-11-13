@@ -30,7 +30,7 @@ public partial class Administrator_EditorBorList : System.Web.UI.Page
 
             string m = "0";
 
-            snumber.Text = serialnumber;
+            snumber.Text = id;
             bookid.Text = br_bookid;
             bookname.Text = br_bookname;
             userid.Text = br_userid;
