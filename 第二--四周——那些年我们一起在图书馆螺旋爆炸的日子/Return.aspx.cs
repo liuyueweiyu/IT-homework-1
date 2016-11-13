@@ -38,6 +38,8 @@ public partial class Return : System.Web.UI.Page
         DataTable dt = new DataTable();
         dt = myReturn.JudgeIor(sql3);
         int flag3 = dt.Rows.Count;
+  
+
 
         if (flag1 == 0)
             Response.Write("<script>alert('借阅编码不存在！')</script>");
@@ -57,13 +59,32 @@ public partial class Return : System.Web.UI.Page
 
             counts = Convert.ToString(count);
 
+
+            dt = myReturn.JudgeIor(sql1);
+
+            string userid = dt.Rows[0][3].ToString();
+
+            string sql001 = "select * from UserList where userid='" + userid + "'";
+
+            dt = myReturn.JudgeIor(sql001);
+
+            string sum = dt.Rows[0][6].ToString();
+
+            sum = Convert.ToString(Convert.ToInt16(count) - 1);
+
+
+            string sql000 = "update UserList set sum = '" + sum + "'where userid = '" + userid + "'";
+
+            int flag000 = myReturn.DataSQL(sql000);
+
+
             string sql5 = "update Book set count = '" + counts + "'where bookid = " + book + "";
             string sql6 = "delete from BorrowList where serialnumber='" + sids + "'";
 
             int flag = myReturn.DataSQL(sql5);
             int flagx = myReturn.DataSQL(sql6);
 
-            if (flag == 1&&flagx==1)
+            if (flag == 1&&flagx==1&&flag000==1)
                 Response.Write("<script>alert('归还成功！')，location='Register.aspx'</script>");
         }
         else

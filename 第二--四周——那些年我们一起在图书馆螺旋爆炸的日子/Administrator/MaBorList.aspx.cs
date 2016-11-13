@@ -60,11 +60,47 @@ public partial class toBorList : System.Web.UI.Page
         {
             int id = Convert.ToInt32(e.CommandArgument.ToString());
 
+            string sql1 = "select * from BorrowList where serialnumber='" + id + "'";
+
+            DataTable dt = new DataTable();
+
+            dt = myMaBorList.JudgeIor(sql1);
+
+            string bookid = dt.Rows[0][1].ToString();
+
+            string userid = dt.Rows[0][3].ToString();
+
+            string sql2 = "select * from Book where bookid='" + bookid + "'";
+
+            dt = myMaBorList.JudgeIor(sql2);
+
+            string count = dt.Rows[0][3].ToString();
+
+            count = Convert.ToString(Convert.ToInt16(count)+1);
+
+            string sql3 = "select * from UserList where userid='" + userid + "'";
+
+            dt = myMaBorList.JudgeIor(sql3);
+
+            string sum = dt.Rows[0][6].ToString();
+
+            sum = Convert.ToString(Convert.ToInt32(sum) - 1);
+
+            string sql4 = "update Book set count = '" + count + "'where bookid = '" + bookid + "'";
+
+            string sql5 = "update UserList set sum = '" + sum + "'where userid = '" + userid + "'";
+
+            int flag00 = myMaBorList.DataSQL(sql4);
+            int flag01 = myMaBorList.DataSQL(sql5);
+
+
             string sql = "delete from BorrowList where serialnumber='" + id + "'";
+
+
 
             int flag = myMaBorList.DataSQL(sql);
 
-            if (flag == 1)
+            if (flag == 1&&flag00==1&&flag01==1)
                 Response.Write("<script>alert('删除成功！');location='MaBorList.aspx'</script>");
 
 

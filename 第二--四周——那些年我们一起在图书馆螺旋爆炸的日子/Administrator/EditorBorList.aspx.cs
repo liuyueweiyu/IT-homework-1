@@ -28,12 +28,15 @@ public partial class Administrator_EditorBorList : System.Web.UI.Page
             string br_time = dt.Rows[0][4].ToString();
             string re_time = dt.Rows[0][5].ToString();
 
+            string m = "0";
+
             snumber.Text = serialnumber;
             bookid.Text = br_bookid;
             bookname.Text = br_bookname;
             userid.Text = br_userid;
             brtime.Text = br_time;
             retime.Text = re_time;
+            days.Text = m;
         }
     }
 

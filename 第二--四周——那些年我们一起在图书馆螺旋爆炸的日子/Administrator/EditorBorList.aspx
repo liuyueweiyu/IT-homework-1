@@ -40,7 +40,7 @@
         <br />
         <br />
         延期归还时间：
-               <asp:TextBox ID="days" runat="server" Width="71px"></asp:TextBox>
+               <asp:TextBox ID="days" runat="server" Width="71px" ></asp:TextBox>
         &nbsp;（单位/天）<br />
         <br />
 

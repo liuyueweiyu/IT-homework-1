@@ -19,6 +19,9 @@ public partial class User : System.Web.UI.Page
         dt = myUser.JudgeIor(sql);
 
         string freeze = dt.Rows[0][5].ToString();
+        string sums = dt.Rows[0][6].ToString();
+
+        sum.Text = sums;
 
         if (String.Compare(freeze, "yes") != 0)
             frozen.Text = "当前账号可继续借书";

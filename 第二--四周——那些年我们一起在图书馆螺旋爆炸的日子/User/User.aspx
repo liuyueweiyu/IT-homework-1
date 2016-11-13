@@ -15,6 +15,11 @@
         <br />
         <br />
 
+        以借图书数量为：<asp:Label ID="sum" runat="server"></asp:Label>
+
+        <br />
+        <br />
+
         <asp:LinkButton ID="toBooklist" runat="server" Text="书籍查询" PostBackUrl="~/User/BookList.aspx"></asp:LinkButton>
         <br />
         <br />
